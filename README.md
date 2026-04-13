@@ -1,6 +1,5 @@
 # Kafka Audit Pipeline
 
-[![CI](https://github.com/jainmohit0807/kafka-audit-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/jainmohit0807/kafka-audit-pipeline/actions/workflows/ci.yml)
 [![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk)](https://openjdk.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.3-6DB33F?logo=springboot)](https://spring.io/projects/spring-boot)
 [![Kafka](https://img.shields.io/badge/Apache_Kafka-7.7-231F20?logo=apachekafka)](https://kafka.apache.org/)
