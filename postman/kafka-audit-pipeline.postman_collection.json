@@ -1,0 +1,54 @@
+{
+  "info": {
+    "name": "Kafka Audit Pipeline",
+    "description": "API collection for kafka-audit-pipeline",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" }
+  ],
+  "item": [
+    {
+      "name": "Publish Audit Event",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": { "raw": "{{baseUrl}}/v1/audit-events" },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"source\": \"user-service\",\n  \"action\": \"LOGIN\",\n  \"actorId\": \"user-123\",\n  \"actorEmail\": \"user@example.com\",\n  \"resourceType\": \"session\",\n  \"resourceId\": \"sess-456\",\n  \"ipAddress\": \"192.168.1.100\",\n  \"outcome\": \"SUCCESS\",\n  \"metadata\": { \"browser\": \"Chrome\" }\n}"
+        }
+      }
+    },
+    {
+      "name": "List Audit Events",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/v1/audit-events?page=0&size=20" }
+      }
+    },
+    {
+      "name": "List Events by Source",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/v1/audit-events?source=user-service" }
+      }
+    },
+    {
+      "name": "Count Audit Events",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/v1/audit-events/count" }
+      }
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/actuator/health" }
+      }
+    }
+  ]
+}

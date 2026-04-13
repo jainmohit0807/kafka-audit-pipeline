@@ -1,0 +1,33 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IDE ###
+.idea/*
+!.idea/misc.xml
+!.idea/runConfigurations/
+!.idea/runConfigurations/**
+*.iws
+*.iml
+*.ipr
+.vscode/
+*.swp
+*.swo
+*~
+
+### macOS ###
+.DS_Store
+
+### Maven ###
+log/
+target/
+
+### Environment ###
+.env
+*.env.local
+
+### Logs ###
+*.log
+logs/

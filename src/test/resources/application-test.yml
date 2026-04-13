@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:audit_test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  flyway:
+    enabled: false
+
+  kafka:
+    bootstrap-servers: ${spring.embedded.kafka.brokers:localhost:9092}
+
+audit:
+  kafka:
+    topic: audit-events-test
+    dlq-topic: audit-events-dlq-test
+    consumer-group: audit-test-group
+    partitions: 1
+
+  retention:
+    years-to-retain: 7
+    auto-drop-expired-partitions: false

@@ -1,0 +1,25 @@
+# Local development without Docker: in-memory H2, embedded Kafka disabled (mock in tests).
+# Run: mvn spring-boot:run -Dspring-boot.run.profiles=local
+# API: http://localhost:8080/api  Swagger: http://localhost:8080/api/swagger-ui.html
+# NOTE: Kafka producer/consumer won't function without a running broker.
+#       For full local testing, start Kafka via: docker compose up -d kafka zookeeper
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:audit_local;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+  flyway:
+    enabled: false
+
+  kafka:
+    bootstrap-servers: localhost:29092
